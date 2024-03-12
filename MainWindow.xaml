@@ -10,8 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-
-            <RowDefinition Height="225"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -19,34 +18,64 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
-
+        
+        <!--Player Information-->
+        
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Player Stats" FontFamily="Narkisim" Background="Gray"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Player Image" FontFamily="Narkisim" Background="GhostWhite"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Player Image" Background="GhostWhite"/>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/> 
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Name "/>
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Class"/>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Hit Points"/>
+                <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="EXP"/>
+                <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="LVL"/>
+                <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+                <Label Grid.Row="5" Grid.Column="0" Content="Gold"/>
+                <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+                
+            </Grid>
         </Grid>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Menu" Background="DarkSlateGray"/> 
         <Label Grid.Row="1" Grid.Column="1" Content="Game Message" Background="MidnightBlue"/>
-
+        
+        <!--Enemy Information-->
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Enemy Stats" FontFamily="Narkisim" Background="Gray"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Enemy Image" FontFamily="Narkisim" Background="GhostWhite"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Enemy Image" Background="GhostWhite"/>
         </Grid>
 
         <Label Grid.Row="2" Grid.Column="1" Content="Item" Background="DarkSlateGray"/>
