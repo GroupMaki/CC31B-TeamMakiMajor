@@ -5,83 +5,155 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CC31B_TeamMakiMajor"
         mc:Ignorable="d"
-        Title="Shadows of Yggdrasil:Valheim" Height="450" Width="800">
+        Title="Shadows of Yggdrasil" Height="450" Width="800">
+    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="150" />
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-        
-        <!--Player Information-->
-        
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Player Image" Background="GhostWhite"/>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Content="Menu" Background="DimGray"/>
+
+        <!-- Enemy Status-->
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
+            <Label Grid.Row="1" Grid.Column="0"  Content =" ENEMY STATUS" Background="RosyBrown" />
+        </Grid>
+        <!-- Location-->
+        <Grid Grid.Column="2" Grid.Row="1" >
+            <Label Grid.Column="2" Grid.Row="1" Content="Location" Background="Snow"/>
 
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/> 
                 </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                               HorizontalAlignment="Center"
+                               Text="{Binding CurrentLocation.Name}"/>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="Name "/>
-                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
-                <Label Grid.Row="1" Grid.Column="0" Content="Class"/>
-                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="Hit Points"/>
-                <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}"/>
-                <Label Grid.Row="3" Grid.Column="0" Content="EXP"/>
-                <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
-                <Label Grid.Row="4" Grid.Column="0" Content="LVL"/>
-                <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
-                <Label Grid.Row="5" Grid.Column="0" Content="Gold"/>
-                <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
-                
+                <Image Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Height="1080"
+                           Width="540"
+                           Source="{Binding CurrentLocation.ImageName}"/>
+
             </Grid>
         </Grid>
+        <!-- Quest-->
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Label Grid.Row="2" Grid.Column="2" Content="Quest" Background="Lavender"/>
+        </Grid>
+        <!--Player Status-->
+        <Grid Grid.Row="1"  Grid.Column="3" Grid.RowSpan="2" >
 
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Menu" Background="DarkSlateGray"/> 
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Message" Background="MidnightBlue"/>
-        
-        <!--Enemy Information-->
-        <Grid Grid.Row="1" Grid.Column="2">
+            <Label Grid.Column="3" Grid.RowSpan="2" Grid.Row="1" Content="PLAYER STATUS" Background="DarkSeaGreen"/>
+
+            <Grid Grid.Row = "1" Grid.Column = "2" Grid.RowSpan = "2" >
+                <Grid.RowDefinitions >
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto"/>
+                </Grid.RowDefinitions >
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width = "Auto" />
+                    <ColumnDefinition Width = "Auto" />
+                </Grid.ColumnDefinitions >
+
+                <Label Grid.Row = "0" Grid.Column = "0" Content = "" />
+                <Label Grid.Row = "1" Grid.Column = "0" Content = "Name:" />
+                <Label Grid.Row = "1" Grid.Column = "1" Content = "{Binding CurrentPlayer.Name}" />
+                <Label Grid.Row = "2" Grid.Column = "0" Content = "Character Class:" />
+                <Label Grid.Row = "2" Grid.Column = "1" Content = "{Binding CurrentPlayer.CharacterClass}" />
+                <Label Grid.Row = "3" Grid.Column = "0" Content = "Hit Points:" />
+                <Label Grid.Row = "3" Grid.Column = "1" Content = "{Binding CurrentPlayer.HitPoints}"/>
+                <Label Grid.Row = "4" Grid.Column = "0" Content = "XP:" />
+                <Label Grid.Row = "4" Grid.Column = "1" Content = "{Binding CurrentPlayer.ExperiencePoints}" />
+                <Label Grid.Row = "5" Grid.Column = "0" Content = "LVL:" />
+                <Label Grid.Row = "5" Grid.Column = "1" Content = "{Binding CurrentPlayer.Level}" />
+                <Label Grid.Row = "6" Grid.Column = "0" Content = "Gold:" />
+                <Label Grid.Row = "6" Grid.Column = "1" Content = "{Binding CurrentPlayer.Gold}" />
+                <Button Grid.Row ="7" Grid.Column="1" Content="Add Gold" Click= "ButtonBase_OnClick"/>
+            </Grid >
+        </Grid>
+
+        <!--Enemy Image Display-->
+        <Grid Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2">
+
+            <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2" Content="Enemy Image" Background="Silver"/>
+        </Grid>
+        <!--Game or System Message-->
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Label  Grid.Row="3" Grid.Column="2" Content="Game Message" Background="SlateGray"/>
+        </Grid>
+        <!--Player Image Display-->
+        <Grid Grid.Row="3" Grid.Column="3">
+            <Label Grid.Row="3" Grid.Column="3" Content="Player Image" Background="Silver"/>
+                <Image Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Height="394"
+                           Width="500"
+                           Source="{Binding Border.CharacterBorder}"/>
+        </Grid>
+        <!--Item Image-->
+        <Grid Grid.Row="4" Grid.Column="0" >
+            <Label Grid.Row="4" Grid.Column="0" Content="Item Image" Background="DarkSlateGray"/>
+        </Grid>
+        <!--Item Drop-->
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Label Grid.Row="4" Grid.Column="1" Content="Item Drop" Background="DarkSlateGray"/>
+        </Grid>
+        <!--Inventory-->
+        <Grid Grid.Row="4" Grid.Column="2">
+            <Label Grid.Row="4" Grid.Column="2" Content="Inventory" Background="DarkSlateGray"/>
+        </Grid>
+        <!--Navigation Button-->
+        <Grid Grid.Row="4" Grid.Column="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Enemy Image" Background="GhostWhite"/>
+            <Button Grid.Row="0" Grid.Column="1" Height="25" Width="40" Margin="10" Content="North" Click= "OnClick_MoveNorth" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"/>
+            <Button Grid.Row="1" Grid.Column="2" Height="25" Width="40" Margin="10" Content="East" Click= "OnClick_MoveEast" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"/>
+            <Button Grid.Row="1" Grid.Column="0" Height="25" Width="40" Margin="10" Content="West" Click= "OnClick_MoveWest" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"/>
+            <Button Grid.Row="2" Grid.Column="1" Height="25" Width="40" Margin="10" Content="South" Click= "OnClick_MoveSouth" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"/>
         </Grid>
-
-        <Label Grid.Row="2" Grid.Column="1" Content="Item" Background="DarkSlateGray"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory and Quest" Background="DarkSlateGray"/>
-        <Label Grid.Row="2" Grid.Column="3" Content="Navigation Buttons" Background="DarkSlateGray"/>
 
     </Grid>
 </Window>
- 

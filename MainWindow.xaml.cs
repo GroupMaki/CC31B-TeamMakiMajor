@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MajorEngine.ViewModels;
+using MajorEngine.Models;
 
 namespace CC31B_TeamMakiMajor;
 
@@ -23,5 +24,32 @@ public partial class MainWindow : Window
         InitializeComponent();
         _gameSession = new GameSession();
         DataContext = _gameSession;
+
     }
+
+    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+    {
+        _gameSession.CurrentPlayer.Gold += 10;
+    }
+
+    private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
+    {
+        _gameSession.MoveNorth();
+    }
+
+    private void OnClick_MoveEast(object sender, RoutedEventArgs e)
+    {
+        _gameSession.MoveEast();
+    }
+
+    private void OnClick_MoveWest(object sender, RoutedEventArgs e)
+    {
+        _gameSession.MoveWest();
+    }
+
+    private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
+    {
+        _gameSession.MoveSouth();
+    }
+
 }
