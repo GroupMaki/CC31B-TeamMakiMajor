@@ -1,0 +1,11 @@
+C:\Users\Lenovo\MajorEngine\bin\Debug\net8.0\MajorEngine.deps.json
+C:\Users\Lenovo\MajorEngine\bin\Debug\net8.0\MajorEngine.dll
+C:\Users\Lenovo\MajorEngine\bin\Debug\net8.0\MajorEngine.pdb
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.AssemblyInfoInputs.cache
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.AssemblyInfo.cs
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.dll
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\refint\MajorEngine.dll
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\MajorEngine.pdb
+C:\Users\Lenovo\MajorEngine\obj\Debug\net8.0\ref\MajorEngine.dll
