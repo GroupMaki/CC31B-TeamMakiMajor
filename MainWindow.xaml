@@ -109,7 +109,7 @@
                    HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Task" Binding="{Binding PlayerQuest.Name}" Width="*"/>
-                            <DataGridTextColumn Header="Items Needed" Binding="{Binding PlayerQuest.ItemsToComplete}" Width="Auto"/> <!--no clue how this works-->
+                            <DataGridTextColumn Header="Description" Binding="{Binding PlayerQuest.Description}" Width="*"/> <!--no clue how this works-->
                             <DataGridTextColumn Header="Completed" Binding="{Binding IsCompleted}" Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -135,6 +135,7 @@
                     <RowDefinition Height = "Auto" />
                     <RowDefinition Height = "Auto" />
                     <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
                 </Grid.RowDefinitions >
 
                 <Grid.ColumnDefinitions >
@@ -155,6 +156,8 @@
                 <Label Grid.Row = "5" Grid.Column = "1" Content = "{Binding CurrentPlayer.Level}" />
                 <Label Grid.Row = "6" Grid.Column = "0" Content = "Gold:" />
                 <Label Grid.Row = "6" Grid.Column = "1" Content = "{Binding CurrentPlayer.Gold}" />
+                <Label Grid.Row = "7" Grid.Column = "0" Content = "Health:" />
+                <Label Grid.Row = "7" Grid.Column = "1" Content = "{Binding CurrentPlayer.Health}" />
             </Grid >
             
         </Grid>
@@ -163,11 +166,18 @@
         <Grid Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2">
 
             <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2" Content="Enemy Image" Background="Silver"/>
-
+           
         </Grid>
         <!--Game or System Message-->
         <Grid Grid.Row="3" Grid.Column="2">
             <Label  Grid.Row="3" Grid.Column="2" Content="Game Message" Background="SlateGray"/>
+            <RichTextBox x:Name="GameMessages" Background="Beige" VerticalScrollBarVisibility="Auto">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </RichTextBox.Resources>
+            </RichTextBox>
         </Grid>
         <!--Player Image Display-->
         <Grid Grid.Row="3" Grid.Column="3">
@@ -210,65 +220,70 @@
         </Grid>
         <!--Navigation Button-->
         <Grid Grid.Row="4" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <Border BorderThickness="5" BorderBrush="Black">
+                <Grid Grid.Row="4" Grid.Column="3">
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.Background>
-                <ImageBrush ImageSource="C:\Users\Lenovo\MajorEngine\Images\Locations\parchmentpaper.png" Stretch="UniformToFill"/>
-            </Grid.Background>
+                <Grid.Background>
+                    <ImageBrush ImageSource="C:\Users\Lenovo\MajorEngine\Images\Locations\parchmentpaper.png" Stretch="UniformToFill"/>
+                </Grid.Background>
 
 
-            <Image Source="C:\Users\Lenovo\MajorEngine\Images\pic2.jpg" Grid.Row="1" Grid.Column="1">
-            </Image>
+                <Image Source="C:\Users\Lenovo\MajorEngine\Images\pic2.jpg" Grid.Row="1" Grid.Column="1">
+                </Image>
 
-            <Button 
+                <Button 
                 Grid.Row="0" Grid.Column="1" 
                 Height="45" Width="60" Margin="2"
                 Click= "OnClick_MoveNorth" 
                 Visibility="{Binding HasLocationToNorth, 
                 Converter={StaticResource BooleanToVisibility}}">
-                <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowNorth.png">
-                </Image>
-            </Button>
+                    <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowNorth.png">
+                    </Image>
+                </Button>
 
-            <Button
+                <Button
                 Grid.Row="1" Grid.Column="2" 
                 Height="45" Width="60" Margin="2"
                 Click= "OnClick_MoveEast" 
                 Visibility="{Binding HasLocationToEast,
                 Converter={StaticResource BooleanToVisibility}}">
-                <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowEast.png">
-                </Image>
-            </Button>
+                    <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowEast.png">
+                    </Image>
+                </Button>
 
-            <Button 
+                <Button 
                 Grid.Row="1" Grid.Column="0" 
                 Height="45" Width="60" Margin="2"
                 Click= "OnClick_MoveWest" 
                 Visibility="{Binding HasLocationToWest, 
                 Converter={StaticResource BooleanToVisibility}}">
-                <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowWest.png">
-                </Image>
-            </Button>
+                    <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowWest.png">
+                    </Image>
+                </Button>
 
-            <Button 
+                <Button 
                 Grid.Row="2" Grid.Column="1" 
                 Height="45" Width="60" Margin="2"
                 Click= "OnClick_MoveSouth" 
                 Visibility="{Binding HasLocationToSouth, 
                 Converter={StaticResource BooleanToVisibility}}">
-                <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowSouth.png">
-                </Image>
-            </Button>
+                    <Image Source="C:\Users\Lenovo\MajorEngine\Images\arrowSouth.png">
+                    </Image>
+                </Button>
+
+            </Grid>
+        </Border>
         </Grid>
 
     </Grid>
