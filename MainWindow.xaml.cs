@@ -10,7 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MajorEngine.ViewModels;
 using MajorEngine.Models;
-using MajorEngine.EventArgs;
 
 namespace CC31B_TeamMakiMajor;
 
@@ -45,12 +44,6 @@ public partial class MainWindow : Window
     private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
     {
         _gameSession.MoveSouth();
-    }
-    private void OnGameMessageRaised(object sender , GameMessageEventArgs e)
-    {
-        GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
-        GameMessages.ScrollToEnd();
-
     }
 
 }
