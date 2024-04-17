@@ -11,3 +11,8 @@
 >Fixed Quests
 >Added Health
 >Fixing UI
+
+>>Latest Version == WPF Project - [Commit: 4/14/2024]
+>Used Net 8.0 instead of old version in testing
+>Creating basic unit test is not available
+
